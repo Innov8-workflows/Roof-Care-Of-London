@@ -1,5 +1,7 @@
 *
 !.gitignore
+!.github/
+!.github/**
 !index.html
 !hero-01-web.mp4
 !b-a-01-web.mp4
