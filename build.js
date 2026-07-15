@@ -285,7 +285,7 @@ function head(d, { title, desc, canonicalPath }) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${DOMAIN}${canonicalPath}">
-<link rel="icon" type="image/png" href="${P(d)}assets/logo.png">
+<link rel="icon" type="image/webp" href="${P(d)}assets/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -296,7 +296,7 @@ function head(d, { title, desc, canonicalPath }) {
 
 function nav(d) {
   return `<header class="nav"><div class="wrap nav-inner">
-  <a class="brand" href="${P(d)}" aria-label="${BIZ} home"><img src="${P(d)}assets/logo.png" alt="${BIZ}"></a>
+  <a class="brand" href="${P(d)}" aria-label="${BIZ} home"><img src="${P(d)}assets/logo.webp" alt="${BIZ}"></a>
   <nav class="nav-links" aria-label="Primary">
     <a href="${P(d)}services/">Services</a>
     <a href="${P(d)}areas/">Areas</a>
@@ -320,7 +320,7 @@ function footer(d) {
   const y = new Date().getFullYear();
   return `<footer class="foot"><div class="wrap">
   <div class="foot-grid">
-    <div><span class="brand"><img src="${P(d)}assets/logo.png" alt="${BIZ}"></span><p>Trusted roofing specialists across South West &amp; Central London. ${YEARS} years’ experience, £5m public liability insurance.</p></div>
+    <div><span class="brand"><img src="${P(d)}assets/logo.webp" alt="${BIZ}"></span><p>Trusted roofing specialists across South West &amp; Central London. ${YEARS} years’ experience, £5m public liability insurance.</p></div>
     <div><h4>Services</h4>${SERVICES.slice(0,6).map(s=>`<a href="${P(d)}${s.slug}/">${s.name}</a>`).join('')}<a href="${P(d)}services/">All services</a></div>
     <div><h4>Popular areas</h4>${['battersea','clapham','wimbledon','fulham','kensington','wandsworth'].map(sl=>`<a href="${P(d)}roofing-contractors-${sl}/">Roofers ${areaBySlug[sl].name}</a>`).join('')}<a href="${P(d)}areas/">All areas</a></div>
     <div><h4>Contact</h4><p><a href="tel:${MOBILE_INTL}">${MOBILE}</a><a href="tel:${LANDLINE_INTL}">${LANDLINE}</a><a href="mailto:${EMAIL}">${EMAIL}</a></p><p>${ADDRESS.street},<br>${ADDRESS.locality} ${ADDRESS.postcode}</p><p><a href="${CHECKATRADE}" target="_blank" rel="noopener">Checkatrade reviews</a><a href="${MYBUILDER}" target="_blank" rel="noopener">MyBuilder reviews</a></p></div>
