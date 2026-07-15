@@ -161,35 +161,37 @@ header.nav.scrolled{box-shadow:0 6px 22px rgba(14,26,34,.09)}
 
 /* REVIEWS */
 .reviews{background:var(--paper)}
-.rev-slider{max-width:720px;margin:0 auto;position:relative}
+.rev-pill{display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 24px;width:max-content;max-width:92%;margin:0 auto 36px;box-shadow:var(--shadow)}
+.rev-pill>img{width:34px;height:34px}
+.rev-pill-score{display:flex;flex-direction:column;line-height:1.1}
+.rev-pill-score strong{font-family:'Barlow',sans-serif;font-size:1.5rem;color:var(--ink)}
+.rev-pill-score .stars{color:#F5A623;font-size:.95rem;letter-spacing:2px}
+.rev-pill-label{font-size:.88rem;color:var(--muted);border-left:1px solid var(--line);padding-left:16px}
+.rev-slider{max-width:1080px;margin:0 auto;position:relative}
 .rev-track{overflow:hidden}
 .rev-row{display:flex;transition:transform .5s ease}
-.rev-card{min-width:100%;padding:6px}
-.g-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:32px 34px;box-shadow:var(--shadow)}
-.g-top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-.g-avatar{width:46px;height:46px;border-radius:50%;background:var(--blue);color:#06232E;display:flex;align-items:center;justify-content:center;font-family:'Barlow',sans-serif;font-weight:800;font-size:1.2rem}
-.g-who{flex:1}
-.g-who .g-name{font-family:'Barlow',sans-serif;font-weight:700;font-size:1.05rem;color:var(--ink)}
-.g-who .g-meta{font-size:.82rem;color:var(--muted)}
-.g-logo{width:22px;height:22px}
-.g-stars{display:flex;gap:2px;margin-bottom:12px}
-.g-stars svg{width:19px;height:19px;color:#FBBC04}
-.g-text{color:var(--text);font-size:1.02rem;line-height:1.65}
-.g-ph{margin-top:14px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);font-weight:600}
+.rev-page{min-width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:4px 2px}
+.rev-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;text-align:left}
+.rev-head{display:flex;align-items:center;gap:12px}
+.rev-avatar{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Barlow',sans-serif;font-weight:700;font-size:1.05rem}
+.rev-who{flex:1;min-width:0}
+.rev-name{font-family:'Barlow',sans-serif;font-weight:700;color:var(--ink);font-size:1rem}
+.rev-date{font-size:.82rem;color:var(--muted)}
+.rev-head>img{width:20px;height:20px;flex-shrink:0}
+.rev-starline{display:flex;align-items:center;gap:8px}
+.rev-stars{color:#F5A623;font-size:1.05rem;letter-spacing:3px;line-height:1}
+.rev-score{font-size:.8rem;color:var(--muted);font-weight:600}
+.rev-text{font-size:.95rem;color:var(--text);flex:1}
+.rev-loc{display:inline-flex;align-items:center;gap:7px;font-size:.86rem;color:var(--muted)}
+.rev-loc svg{width:15px;height:15px;color:var(--blue-deeper)}
 .rev-nav{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:24px}
-.rev-arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.18s}
+.rev-arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease,border-color .2s ease}
 .rev-arrow:hover{background:var(--ink);border-color:var(--ink)}
 .rev-arrow:hover svg{color:var(--white)}
 .rev-arrow svg{width:18px;height:18px;color:var(--ink)}
 .rev-dots{display:flex;gap:8px}
 .rev-dots button{width:8px;height:8px;border-radius:50%;border:0;background:var(--line);cursor:pointer;padding:0;transition:.2s}
-.rev-dots button.active{background:var(--blue);width:22px;border-radius:4px}
-.rev-summary{text-align:center;margin-top:26px;display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:.95rem;justify-content:center;width:100%}
-.rev-summary strong{color:var(--ink);font-family:'Barlow',sans-serif;font-size:1.1rem}
-.rev-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:20px}
-.rev-links a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:14px 26px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--white);text-decoration:none;transition:border-color .2s ease,transform .15s ease}
-.rev-links a:hover{border-color:var(--blue-deep);transform:translateY(-2px)}
-.rev-links strong{font-family:'Barlow',sans-serif;font-size:1.05rem;color:var(--ink)}
+.rev-dots button.active{background:var(--blue-deep);width:22px;border-radius:4px}
 .rev-links span{font-size:.85rem;color:var(--blue-deeper);font-weight:600}
 .areas-strip{background:var(--white)}
 .area-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:860px;margin:0 auto}
@@ -307,7 +309,8 @@ footer.foot{background:#0A141B;color:rgba(255,255,255,.7);padding:60px 0 0}
   .why-list{gap:12px;margin-top:18px}
   .why-photo{aspect-ratio:4/3}
   .rev-nav{margin-top:14px}
-  .rev-summary{margin-top:14px}
+  .rev-page{grid-template-columns:1fr;gap:12px}
+  .rev-pill{gap:12px;padding:12px 16px}
   .about-inner{gap:26px}
   .about-photo{max-width:300px}
   .contact-inner{gap:26px}
@@ -511,17 +514,18 @@ footer.foot{background:#0A141B;color:rgba(255,255,255,.7);padding:60px 0 0}
       <h2>What London homeowners say</h2>
       <p>Real verified Checkatrade reviews from homeowners we have helped across London.</p>
     </div>
+    <div class="rev-pill">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAJFUlEQVR4nO2dQW7bShKG/5LogQHPQjcIA8z+OReQ2yewjNiAd3FO4PgEkk/g5ATR2z3AfohzAtMniJazM+cGDJABMpComgWbsaJISpPNJptyfYA3JptsqKqri9XV1YAgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCILQerpNd0B4Ynf3LPzn7F/4jn9/r+udVNeLhCd6GPS+BcE+zXHEDAUgBNBbui0BKJrx9C1wl7jqS+DqwcJqdjqnF9+YR0jR48239pj5q0vhA2IBaiXonAzBGJncy4w/U9yeu+2RKEBt+Ch8YIsUgJUKAewjn0+ZXyxcDgEkABIQJQC+Aoj134SiyKmZLSJ8AiZTvn3lsj9L72sfrFQPgAJwAGaF1U5UEWIAExB9BhBRFMV2PXyiqPD3eHaYOJ73l97ZDrTQz8F8hEz4LpmA6AMslcF34ev3+g0rpQAcgfkcdqO8LGMQXRVVhDYIX7/bT1gpBeYh3I92U4wVoZjwKd7j6asmhJ+93zO0qb/WI94/iN5SFI3XXS4q/C53D7/jr7ii3hWm09SLV8H9/gWYH70VfuYs3q27uNM5vWiT8LN+eAAr1QPzNYDzpvuygRhEh+umgH90Xw/mc/pk8iBfhJ/1pWFYqRDM98g+5fyF6BVF0WTVpR2c7jPxPQydVGJ6NcXNymfVTaNTACu13xLhX64T/i7OQhA+wVj4uPRF+ECDi0ELwm/i086czPN/v+rSLs7ClNJ7BodGz2JcTXG78llN0cgUoM3+F/gufOCOHh6OV13oYdD7LwX3nIWffw/zhxn+fldp7yqgdguwMOe7FT5RjMxrT/RfqK/0wBwavD8G0dt1F791giHYTPgEiqe49U74QBNTgJs5PwFRBOABwJ1JsIaVyheOBmA+WOpT7vGvDM7ob30jgeYe/9Tk5gaodQrgfn8IolFlD8yE/hnA2HZFj5U6B/AGzPva449X3bfTPT3nOX807qJHHv8qalMAHdq9r+hxsfbM1wZlysJK7W/y+Gc0M/ddGFcz3I4q7F7l1KcABwePqML0Z6t0I9dr+MsU9fiJaDyd36z1IXyhFh+A+/0h7IWf6FE/tu9RcWaUXsNU+KB4bz69bGR1pyDOLUBFn3yJdsoamUuLLPAAQMDBSx/CvCbUEQkcwvaTr0nhByeqiPDBuGqL8AHHCqBH/8DqIRvCsK7ZxVlIKZl7/ERj352+ZVxbAAW70T9eF4atg7STDo2dPlDcnXevHHepctwqQJbRU5YYRI39oDud0wsukpfQMtOf48wJ1Is9X0o/4DeZNy4p+r3flk++Vbi0AOcWbeOmhA8AKaXma/stNf057hQgi6+Xo0HTH3ROjOd9AK01/TlOpgDt/T+WbB7Tw8PLSjtkiDb9xv1us+nPcWUBlEXbqKI+FEabfiPabvpzXCmAWZLEKoj+rLAfxjw305/jRgGY/yjZMqEoiqrsigm7OAuLRPuIaDzFzdhdj+rD1WKQKtWKyCrit7t7Fk6nqSLmkEAvAIDB/wnmwXjTaC1i+gGgO+9e+ZrgUZTKFUA7gGWbPxRtEAQniuY4mjMNZv+bhblXy3jqw4xmwy6/Pk7x9y/5A0HnZMj8/Ex/jgsLEFq0NbYAQXCikGKIFIoBEDYrHRF9BA+ixZIruzgLZzwzztXLcvtuRqb3twEXPkBo0TY2uSnonFwjxT2KTTW9gHZ+WthJO2mxlUpG673+ZVwogG2hho10u68HpgmZv8KDLl4P8ucUivUDk21x/BbxSgFM0rzSNI0IFJd9R4c618Cg15l3rou0CzhYuT+g7fikALHZbXcJM5eOvjE43KHAfDcPss++bXL8FvFJAYyZ4TYC8Yey7Y1382i2IeK3Dq/qAxRhNk9HNlOBKds8+oEWKwBwl8x5fun6Lds8+gE3ClBbNnQW2KHKN4fkbPvoB/xSgLBMo6yYshul2/bRD/ilAHmBqILcJcRU+VTwHEY/4JkCoOQXhA7QRBbv/YXnMPoBNwoQW7RVZRsGHFQ2FTyX0Q/4pwClE0m+46+YKorVP5fRDzhQAL2vvtxILJ9IAgDQ9Xcim2c8p9EPuIsDxCXblU8l01hPBXOUjjC2ETcKQFQ4sUPT08WhS2MzFehUL2+rebjAlQWw+RHtNpOi3FSwLVm+RXGlAOWjc8xvysUDfqbIVECgGIzj5zT35zhRAL2uX9YKZAdDWJJNBXT4mwWjCRhXezz1upCTS9yViCH6DOZyTh3zBQDrbeFT3EzAeBngRDEozP/fASZ7mMZ5jf4iHmPuozSRvu4Cl7uD7aqCZYUhvCqrCvxU7CoG0R2AD1WeMVQ3TmsE8cFB0cTNRRIQvay7GtgmWKlz8MoagZHe0VTpgVN14DYfIDuFqyy9NT92c6wveKHA/BHMj3xw8EkXnWwFbi1AdhDEI2zSxDyZCkpUOY2RWYZLn6zYMk4tAEVRogs7lof5mvv9NxV1qVwX+v2LEiVuQwDKZ+ED9aSEvYftKh3Re1bKOkBUBu7334ConAWyVf4acK4A2grYRth6YP7EStVacl2P/LHFI5ylq1VFnbWCbb4IFil1kGMRWKke5vMhiMorXNbHUXW9ckN9WcFUWdrWOZjvXXnarNQAzF+shJ85gONqeuSWes8LUOqdPh6uKvJagnc2zlbl5xI3WOKuKLWfGVThVLDMnY47TExKy+oTQ5QW+j6q29E0poeH1hSOql8BstjAF7g/Km6Cp6+PBE8CDh2+e+Phkj7S5Klh/p8XWIxk01EzvtLI1jCKohhEh7BLIPWLbN6Pm+5GURrbG7hVSpAJ3/tv/lU0ujl0QQnamoyRtMnjX0Xjh0fnsFIjy/LydROD6LipwyyqwhsFAH4EYa7hu3OYnVd47PtCjwleKQDwIyjzzlNrkGw6TLqNeKcAOaxUCGAE5kaXgn/Q0HmFrvFWAXIWFGH5fN86yPMZxm38xDPBewVYRC8AHVmfRPY7KjyT2HdapQA52k/YR7aL6A+dfm6TdhYj20mUnz6+1UJfpJUKsAq9uJMrRg/AizW3fkW2NhAjiz/Ez0nggiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIwpbwf1NXzb28zS6YAAAAAElFTkSuQmCC" alt="Checkatrade">
+      <div class="rev-pill-score"><strong>9.79</strong><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+      <span class="rev-pill-label">Based on 11 verified<br>Checkatrade reviews</span>
+    </div>
     <div class="rev-slider">
       <div class="rev-track"><div class="rev-row" id="revRow"></div></div>
       <div class="rev-nav">
-        <button class="rev-arrow" id="revPrev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="rev-arrow" id="revPrev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
         <div class="rev-dots" id="revDots"></div>
-        <button class="rev-arrow" id="revNext" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <button class="rev-arrow" id="revNext" aria-label="Next reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
       </div>
-      <a class="rev-summary" href="https://www.checkatrade.com/trades/roofcareoflondon5932305" target="_blank" rel="noopener" style="text-decoration:none">
-        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#E4002B"/><path d="M20 6 9 17l-5-5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(12 12) scale(.62) translate(-12 -12)"/></svg>
-        <span>Verified reviews on <strong>Checkatrade</strong></span>
-      </a>
       <div class="rev-links">
         <a href="https://www.checkatrade.com/trades/roofcareoflondon5932305" target="_blank" rel="noopener"><img src="data:image/png;base64,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" alt="" width="26" height="26" style="margin-bottom:4px"><strong>Checkatrade</strong><span>Read all 11 verified reviews &rarr;</span></a>
         <a href="https://www.mybuilder.com/profile/roof-care-of-london" target="_blank" rel="noopener"><img src="data:image/png;base64,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" alt="" width="26" height="26" style="margin-bottom:4px"><strong>MyBuilder</strong><span>4 reviews &rarr;</span></a>
@@ -761,35 +765,42 @@ document.getElementById("ownerPhoto").src=IMAGES.owner;
 document.getElementById("ctaBg").style.backgroundImage="url('"+IMAGES.cta+"')";
 
 /* REVIEWS — real verified Checkatrade reviews (checkatrade.com/trades/roofcareoflondon5932305) */
+var CT_ICON="data:image/png;base64,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";
 var REVIEWS=[
-  {name:"Verified reviewer",area:"SW18",stars:5,text:"James and his team did an excellent job on our roof and lintel repairs. Clear scoping of work, great communication and progress updates. On time and on budget. Strongly recommended!"},
-  {name:"Verified reviewer",area:"SE23",stars:5,text:"Rainwater leaks? Not anymore. Just call James from Roofcare and everything will be taken care of. I cannot speak highly enough of James and his Team. Right from the very first call to the last piece of scaffolding coming down James has been on it. All of James’s Team were so polite and considerate. Great Job. Thank-you."},
-  {name:"Verified reviewer",area:"SE25",stars:5,text:"Really good experience. Work was carried out professionally and to high standard. Communication was also excellent."},
-  {name:"Marie M",area:"SW9",stars:5,text:"Overhaul of 2 flat roofs — very good work on two flat roofs."},
-  {name:"John D",area:"SW18",stars:5,text:"Replaced water-damaged fascia boarding and battens, degraded felt and a bay window lintel. The work carried out was thorough and well-implemented. The lead foreman was professional and well-presented."},
-  {name:"Verified reviewer",area:"W5",stars:5,text:"Highly professional and very accommodating."}
+  {name:"Verified reviewer",area:"SW18",date:"January 2026",score:"10 / 10",text:"James and his team did an excellent job on our roof and lintel repairs. Clear scoping of work, great communication and progress updates. On time and on budget. Strongly recommended!"},
+  {name:"Verified reviewer",area:"SE23",date:"February 2026",score:"10 / 10",text:"Rainwater leaks? Not anymore. Just call James from Roofcare and everything will be taken care of. I cannot speak highly enough of James and his Team. Right from the very first call to the last piece of scaffolding coming down James has been on it. Great Job. Thank-you."},
+  {name:"Verified reviewer",area:"SE25",date:"February 2026",score:"9 / 10",text:"Really good experience. Work was carried out professionally and to high standard. Communication was also excellent."},
+  {name:"Marie M",area:"SW9",date:"February 2026",score:"9.67 / 10",text:"Overhaul of 2 flat roofs — very good work on two flat roofs."},
+  {name:"John D",area:"SW18",date:"January 2026",score:"9 / 10",text:"Replaced water-damaged fascia boarding and battens, degraded felt and a bay window lintel. The work carried out was thorough and well-implemented. The lead foreman was professional and well-presented."},
+  {name:"Verified reviewer",area:"W5",date:"February 2026",score:"10 / 10",text:"Highly professional and very accommodating."}
 ];
 (function(){
   var row=document.getElementById("revRow"),dotsWrap=document.getElementById("revDots"),prev=document.getElementById("revPrev"),next=document.getElementById("revNext");
-  var i=0,dots=[],timer;
-  function star(){return "<svg viewBox='0 0 24 24' fill='currentColor'><path d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/></svg>";}
-  REVIEWS.forEach(function(r,idx){
-    var initial=(r.name.replace(/[^A-Za-z]/g,"")[0]||"R").toUpperCase();
-    var stars="";for(var s=0;s<r.stars;s++)stars+=star();
-    var card=document.createElement("div");card.className="rev-card";
-    card.innerHTML="<div class='g-card'><div class='g-top'><div class='g-avatar'>"+initial+"</div><div class='g-who'><div class='g-name'>"+r.name+"</div><div class='g-meta'>"+r.area+", Google review</div></div><svg class='g-logo' viewBox='0 0 24 24'><path fill='#4285F4' d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z'/><path fill='#34A853' d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z'/><path fill='#FBBC05' d='M5.84 14.09a6.6 6.6 0 0 1 0-4.18V7.07H2.18a11 11 0 0 0 0 9.86l3.66-2.84z'/><path fill='#EA4335' d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z'/></svg></div><div class='g-stars'>"+stars+"</div><p class='g-text'>"+r.text+"</p><div class='g-ph'>Placeholder review, replace with a real one</div></div>";
-    row.appendChild(card);
-    var b=document.createElement("button");b.className=idx===0?"active":"";b.setAttribute("aria-label","Show review "+(idx+1));
+  var PIN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="12" r="3"/></svg>';
+  var pages=[],dots=[],i=0,timer;
+  for(var p=0;p<REVIEWS.length;p+=3)pages.push(REVIEWS.slice(p,p+3));
+  pages.forEach(function(group,idx){
+    var page=document.createElement("div");page.className="rev-page";
+    group.forEach(function(r){
+      var c=document.createElement("div");c.className="rev-card";
+      c.innerHTML='<div class="rev-head"><span class="rev-avatar">'+r.name.charAt(0)+'</span><span class="rev-who"><span class="rev-name">'+r.name+'</span><br><span class="rev-date">'+r.date+'</span></span><img src="'+CT_ICON+'" alt="Checkatrade"></div>'
+        +'<div class="rev-starline"><span class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rev-score">'+r.score+' on Checkatrade</span></div>'
+        +'<p class="rev-text">&ldquo;'+r.text+'&rdquo;</p>'
+        +'<span class="rev-loc">'+PIN+r.area+'</span>';
+      page.appendChild(c);
+    });
+    row.appendChild(page);
+    var b=document.createElement("button");b.className=idx===0?"active":"";b.setAttribute("aria-label","Show reviews page "+(idx+1));
     b.addEventListener("click",function(){go(idx);reset();});dotsWrap.appendChild(b);dots.push(b);
   });
-  function go(n){i=(n+REVIEWS.length)%REVIEWS.length;row.style.transform="translateX(-"+(i*100)+"%)";dots.forEach(function(d,x){d.classList.toggle("active",x===i);});}
+  function go(n){i=(n+pages.length)%pages.length;row.style.transform="translateX(-"+(i*100)+"%)";dots.forEach(function(d,x){d.classList.toggle("active",x===i);});}
   function reset(){clearInterval(timer);start();}
-  function start(){timer=setInterval(function(){go(i+1);},5000);}
+  function start(){if(pages.length>1)timer=setInterval(function(){go(i+1);},6500);}
   prev.addEventListener("click",function(){go(i-1);reset();});
   next.addEventListener("click",function(){go(i+1);reset();});
-  var x0=null;
-  row.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;},{passive:true});
-  row.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(dx<0?i+1:i-1);reset();}x0=null;});
+  var slider=document.querySelector(".rev-slider");
+  slider.addEventListener("mouseenter",function(){clearInterval(timer);});
+  slider.addEventListener("mouseleave",start);
   start();
 })();
 
