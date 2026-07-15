@@ -508,7 +508,7 @@ footer.foot{background:#0A141B;color:rgba(255,255,255,.7);padding:60px 0 0}
     <div class="section-head">
       <span class="eyebrow">Customer reviews</span>
       <h2>What London homeowners say</h2>
-      <p>Real feedback from people we have helped across London.</p>
+      <p>Real verified Checkatrade reviews from homeowners we have helped across London.</p>
     </div>
     <div class="rev-slider">
       <div class="rev-track"><div class="rev-row" id="revRow"></div></div>
@@ -517,12 +517,12 @@ footer.foot{background:#0A141B;color:rgba(255,255,255,.7);padding:60px 0 0}
         <div class="rev-dots" id="revDots"></div>
         <button class="rev-arrow" id="revNext" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
       </div>
-      <div class="rev-summary">
-        <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.09a6.6 6.6 0 0 1 0-4.18V7.07H2.18a11 11 0 0 0 0 9.86l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-        <span>Rated <strong>5.0</strong> on Google</span>
-      </div>
+      <a class="rev-summary" href="https://www.checkatrade.com/trades/roofcareoflondon5932305" target="_blank" rel="noopener" style="text-decoration:none">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#E4002B"/><path d="M20 6 9 17l-5-5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(12 12) scale(.62) translate(-12 -12)"/></svg>
+        <span>Verified reviews on <strong>Checkatrade</strong></span>
+      </a>
       <div class="rev-links">
-        <a href="https://www.checkatrade.com/trades/roofcareoflondon5932305" target="_blank" rel="noopener"><strong>Checkatrade</strong><span>11 verified reviews &rarr;</span></a>
+        <a href="https://www.checkatrade.com/trades/roofcareoflondon5932305" target="_blank" rel="noopener"><strong>Checkatrade</strong><span>Read all 11 verified reviews &rarr;</span></a>
         <a href="https://www.mybuilder.com/profile/roof-care-of-london" target="_blank" rel="noopener"><strong>MyBuilder</strong><span>4 reviews &rarr;</span></a>
       </div>
     </div>
@@ -759,11 +759,14 @@ var IMAGES={
 document.getElementById("ownerPhoto").src=IMAGES.owner;
 document.getElementById("ctaBg").style.backgroundImage="url('"+IMAGES.cta+"')";
 
-/* REVIEWS (placeholder data) */
+/* REVIEWS — real verified Checkatrade reviews (checkatrade.com/trades/roofcareoflondon5932305) */
 var REVIEWS=[
-  {name:"[Reviewer name]",area:"London",stars:5,text:"[Placeholder review] Excellent work from start to finish. Turned up when they said they would, tidy, and the new roof looks superb. Would recommend."},
-  {name:"[Reviewer name]",area:"London",stars:5,text:"[Placeholder review] Came out quickly to fix a leak after a storm. Honest, fair price and no mess left behind. Very happy."},
-  {name:"[Reviewer name]",area:"London",stars:5,text:"[Placeholder review] Professional team who clearly know roofing. Explained everything clearly and the flat roof has been perfect since."}
+  {name:"Verified reviewer",area:"SW18",stars:5,text:"James and his team did an excellent job on our roof and lintel repairs. Clear scoping of work, great communication and progress updates. On time and on budget. Strongly recommended!"},
+  {name:"Verified reviewer",area:"SE23",stars:5,text:"Rainwater leaks? Not anymore. Just call James from Roofcare and everything will be taken care of. I cannot speak highly enough of James and his Team. Right from the very first call to the last piece of scaffolding coming down James has been on it. All of James’s Team were so polite and considerate. Great Job. Thank-you."},
+  {name:"Verified reviewer",area:"SE25",stars:5,text:"Really good experience. Work was carried out professionally and to high standard. Communication was also excellent."},
+  {name:"Marie M",area:"SW9",stars:5,text:"Overhaul of 2 flat roofs — very good work on two flat roofs."},
+  {name:"John D",area:"SW18",stars:5,text:"Replaced water-damaged fascia boarding and battens, degraded felt and a bay window lintel. The work carried out was thorough and well-implemented. The lead foreman was professional and well-presented."},
+  {name:"Verified reviewer",area:"W5",stars:5,text:"Highly professional and very accommodating."}
 ];
 (function(){
   var row=document.getElementById("revRow"),dotsWrap=document.getElementById("revDots"),prev=document.getElementById("revPrev"),next=document.getElementById("revNext");
