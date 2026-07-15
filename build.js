@@ -251,6 +251,10 @@ a{color:var(--blue-deeper)}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chips a{display:inline-block;padding:9px 16px;border:1px solid var(--line);border-radius:999px;font-size:.88rem;font-weight:600;color:var(--text);text-decoration:none;background:#fff}
 .chips a:hover{border-color:var(--blue-deep);color:var(--blue-deeper)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.hub-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;height:100%}
+.hub-card h3{margin-bottom:8px;font-size:1.12rem}
+.hub-card p{font-size:.92rem;color:var(--muted);margin:0}
 .trustline{display:flex;flex-wrap:wrap;gap:12px 34px;justify-content:center;padding:22px 0;background:var(--ink-2);color:rgba(255,255,255,.9);font-family:'Barlow',sans-serif;font-weight:600;font-size:.95rem}
 .trustline span{display:inline-flex;align-items:center;gap:8px}
 .trustline b{color:var(--blue-light)}
@@ -267,7 +271,7 @@ a{color:var(--blue-deeper)}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:20px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem}
 .foot-bottom a{display:inline;color:var(--blue-light)}
 @media(max-width:880px){.nav-links{display:none}.grid2{grid-template-columns:1fr;gap:30px}.side-card{position:static}.photos{grid-template-columns:1fr 1fr}.foot-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){.sec{padding:44px 0}.phero-in{padding:52px 18px 48px}.foot-grid{grid-template-columns:1fr 1fr}.nav-inner{height:72px}.nav-inner .brand img{height:52px}.photos{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.sec{padding:36px 0}.sec h2{margin-bottom:14px}.phero-in{padding:42px 18px 38px}.phero .lead{margin:12px auto 22px}.trustline{gap:8px 20px;padding:14px 12px;font-size:.85rem}.grid2{gap:22px}.side-card{padding:18px}.photos{grid-template-columns:1fr 1fr;gap:10px}.checks{gap:9px}.faq details{padding:13px 16px}.chips{gap:8px}.chips a{padding:7px 12px;font-size:.8rem}.card-grid{gap:10px}.hub-card{padding:14px 16px}.hub-card h3{font-size:1rem;margin-bottom:3px}.hub-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.cta-band{padding:42px 18px}.foot-grid{grid-template-columns:1fr 1fr;gap:20px 14px}.foot-grid>div:first-child,.foot-grid>div:last-child{grid-column:1/-1}.nav-inner{height:72px}.nav-inner .brand img{height:52px}}
 `;
 
 function head(d, { title, desc, canonicalPath }) {
@@ -434,10 +438,10 @@ function servicePage(svc) {
 function servicesHub() {
   const d = 1, canonical = '/services/';
   urls.push(canonical);
-  const cards = SERVICES.map(s=>`<a href="../${s.slug}/" style="text-decoration:none"><div style="background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;height:100%"><h3 style="margin-bottom:8px;font-size:1.15rem">${s.name}</h3><p style="font-size:.92rem;color:var(--muted)">${esc(s.lead.split(' —')[0].split('. ')[0])}.</p></div></a>`).join('');
+  const cards = SERVICES.map(s=>`<a href="../${s.slug}/" style="text-decoration:none"><div class="hub-card"><h3>${s.name}</h3><p>${esc(s.lead.split(' —')[0].split('. ')[0])}.</p></div></a>`).join('');
   const html = head(d,{title:'Services – Roof Care Of London',desc:`Every roofing service under one roof: repairs, re-roofs, flat roofing, leadwork, chimneys, fascias, rendering and more. ${YEARS} years’ experience across London.`,canonicalPath:canonical}) + nav(d)
     + pageHero(d,{crumb:'Services', h1:'Our Services', lead:'Every roofing trade under one roof — pitched, flat, heritage and everything around it. No job too big, no job too small.'})
-    + `<section class="sec"><div class="wrap"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">${cards}</div></div></section>
+    + `<section class="sec"><div class="wrap"><div class="card-grid">${cards}</div></div></section>
        <section class="sec sec-alt"><div class="wrap"><h2>Areas we cover</h2><div class="chips">${AREAS.map(a=>`<a href="../roofing-contractors-${a.slug}/">${a.name}</a>`).join('')}</div></div></section>`
     + ctaBand(d) + bizSchema() + footer(d);
   write('services/index.html', html);
@@ -446,10 +450,10 @@ function servicesHub() {
 function areasHub() {
   const d = 1, canonical = '/areas/';
   urls.push(canonical);
-  const cards = AREAS.map(a=>`<a href="../roofing-contractors-${a.slug}/" style="text-decoration:none"><div style="background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;height:100%"><h3 style="margin-bottom:6px;font-size:1.1rem">Roofers in ${a.name}</h3><p style="font-size:.9rem;color:var(--muted)">${esc(a.blurb.split('. ')[0])}.</p></div></a>`).join('');
+  const cards = AREAS.map(a=>`<a href="../roofing-contractors-${a.slug}/" style="text-decoration:none"><div class="hub-card"><h3>Roofers in ${a.name}</h3><p>${esc(a.blurb.split('. ')[0])}.</p></div></a>`).join('');
   const html = head(d,{title:'Areas We Cover – Roof Care Of London',desc:'Roofers covering South West & Central London: Wimbledon, Battersea, Clapham, Fulham, Kensington, Chelsea, Westminster and 16 more areas. Free quotes.',canonicalPath:canonical}) + nav(d)
     + pageHero(d,{crumb:'Areas', h1:'Areas We Cover', lead:'Based in Kensington W8 and working across South West and Central London — if you’re near one of these areas, you’re on our patch.'})
-    + `<section class="sec"><div class="wrap"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">${cards}</div></div></section>`
+    + `<section class="sec"><div class="wrap"><div class="card-grid">${cards}</div></div></section>`
     + ctaBand(d) + bizSchema() + footer(d);
   write('areas/index.html', html);
 }

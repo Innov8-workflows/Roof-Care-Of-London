@@ -50,6 +50,10 @@ a{color:var(--blue-deeper)}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chips a{display:inline-block;padding:9px 16px;border:1px solid var(--line);border-radius:999px;font-size:.88rem;font-weight:600;color:var(--text);text-decoration:none;background:#fff}
 .chips a:hover{border-color:var(--blue-deep);color:var(--blue-deeper)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.hub-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;height:100%}
+.hub-card h3{margin-bottom:8px;font-size:1.12rem}
+.hub-card p{font-size:.92rem;color:var(--muted);margin:0}
 .trustline{display:flex;flex-wrap:wrap;gap:12px 34px;justify-content:center;padding:22px 0;background:var(--ink-2);color:rgba(255,255,255,.9);font-family:'Barlow',sans-serif;font-weight:600;font-size:.95rem}
 .trustline span{display:inline-flex;align-items:center;gap:8px}
 .trustline b{color:var(--blue-light)}
@@ -66,4 +70,4 @@ a{color:var(--blue-deeper)}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:20px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem}
 .foot-bottom a{display:inline;color:var(--blue-light)}
 @media(max-width:880px){.nav-links{display:none}.grid2{grid-template-columns:1fr;gap:30px}.side-card{position:static}.photos{grid-template-columns:1fr 1fr}.foot-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){.sec{padding:44px 0}.phero-in{padding:52px 18px 48px}.foot-grid{grid-template-columns:1fr 1fr}.nav-inner{height:72px}.nav-inner .brand img{height:52px}.photos{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.sec{padding:36px 0}.sec h2{margin-bottom:14px}.phero-in{padding:42px 18px 38px}.phero .lead{margin:12px auto 22px}.trustline{gap:8px 20px;padding:14px 12px;font-size:.85rem}.grid2{gap:22px}.side-card{padding:18px}.photos{grid-template-columns:1fr 1fr;gap:10px}.checks{gap:9px}.faq details{padding:13px 16px}.chips{gap:8px}.chips a{padding:7px 12px;font-size:.8rem}.card-grid{gap:10px}.hub-card{padding:14px 16px}.hub-card h3{font-size:1rem;margin-bottom:3px}.hub-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.cta-band{padding:42px 18px}.foot-grid{grid-template-columns:1fr 1fr;gap:20px 14px}.foot-grid>div:first-child,.foot-grid>div:last-child{grid-column:1/-1}.nav-inner{height:72px}.nav-inner .brand img{height:52px}}
