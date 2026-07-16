@@ -309,7 +309,7 @@ function nav(d) {
     <a href="${P(d)}reviews/">Reviews</a>
     <a href="${P(d)}contact/">Contact</a>
   </nav>
-  <a class="nav-call" href="tel:${MOBILE_INTL}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>${MOBILE}</a>
+  <a class="nav-call" href="tel:${LANDLINE_INTL}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>${LANDLINE}</a>
 </div></header>`;
 }
 
@@ -317,7 +317,7 @@ const trustline = `<div class="trustline"><span><b>${YEARS} Years’</b>&nbsp;Ex
 
 function ctaBand(d, areaName) {
   const where = areaName ? ` in ${areaName}` : '';
-  return `<section class="cta-band"><h2>Need a roofer${esc(where)} you can rely on?</h2><p>Free survey, fixed written quote, and a team that turns up. Call, WhatsApp or send us a message.</p><div class="hero-actions"><a class="btn btn-primary" href="tel:${MOBILE_INTL}">Call ${MOBILE}</a><a class="btn btn-ghost" href="${P(d)}contact/">Request a quote</a></div></section>`;
+  return `<section class="cta-band"><h2>Need a roofer${esc(where)} you can rely on?</h2><p>Free survey, fixed written quote, and a team that turns up. Call, WhatsApp or send us a message.</p><div class="hero-actions"><a class="btn btn-primary" href="tel:${LANDLINE_INTL}">Call ${LANDLINE}</a><a class="btn btn-ghost" href="${P(d)}contact/">Request a quote</a></div></section>`;
 }
 
 function footer(d) {
@@ -327,7 +327,7 @@ function footer(d) {
     <div><span class="brand"><img src="${P(d)}assets/logo.webp" alt="${BIZ}"></span><p>Trusted roofing specialists across South West &amp; Central London. ${YEARS} years’ experience, £5m public liability insurance.</p></div>
     <div><h4>Services</h4>${SERVICES.slice(0,6).map(s=>`<a href="${P(d)}${s.slug}/">${s.name}</a>`).join('')}<a href="${P(d)}services/">All services</a></div>
     <div><h4>Popular areas</h4>${['battersea','clapham','wimbledon','fulham','kensington','wandsworth'].map(sl=>`<a href="${P(d)}roofing-contractors-${sl}/">Roofers ${areaBySlug[sl].name}</a>`).join('')}<a href="${P(d)}areas/">All areas</a></div>
-    <div><h4>Contact</h4><p><a href="tel:${MOBILE_INTL}">${MOBILE}</a><a href="tel:${LANDLINE_INTL}">${LANDLINE}</a><a href="mailto:${EMAIL}">${EMAIL}</a></p><p>${ADDRESS.street},<br>${ADDRESS.locality} ${ADDRESS.postcode}</p><p><a href="${CHECKATRADE}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px"><img src="${P(d)}assets/checkatrade.png" alt="" width="20" height="20">Checkatrade reviews</a><a href="${MYBUILDER}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px"><img src="${P(d)}assets/mybuilder.png" alt="" width="20" height="20">MyBuilder reviews</a></p></div>
+    <div><h4>Contact</h4><p><a href="tel:${LANDLINE_INTL}">${LANDLINE}</a><a href="tel:${MOBILE_INTL}">${MOBILE}</a><a href="mailto:${EMAIL}">${EMAIL}</a></p><p>${ADDRESS.street},<br>${ADDRESS.locality} ${ADDRESS.postcode}</p><p><a href="${CHECKATRADE}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px"><img src="${P(d)}assets/checkatrade.png" alt="" width="20" height="20">Checkatrade reviews</a><a href="${MYBUILDER}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px"><img src="${P(d)}assets/mybuilder.png" alt="" width="20" height="20">MyBuilder reviews</a></p></div>
   </div>
   <div class="foot-bottom"><span>&copy; ${y} ${BIZ} &middot; ${ADDRESS.postcode}, London</span><span>Website by <a href="https://innov8workflows.co.uk" target="_blank" rel="noopener">Innov8 Workflows</a></span></div>
 </div></footer></body></html>`;
@@ -337,11 +337,11 @@ function pageHero(d, { crumb, h1, lead }) {
   return `<section class="phero"><img class="phero-bg" src="${P(d)}assets/hero.jpg" alt="" aria-hidden="true"><div class="phero-in">
   <p class="crumbs"><a href="${P(d)}">Home</a> &rsaquo; ${crumb}</p>
   <h1>${esc(h1)}</h1><p class="lead">${esc(lead)}</p>
-  <div class="hero-actions"><a class="btn btn-primary" href="tel:${MOBILE_INTL}">Call ${MOBILE}</a><a class="btn btn-ghost" href="${P(d)}contact/">Free written quote</a></div>
+  <div class="hero-actions"><a class="btn btn-primary" href="tel:${LANDLINE_INTL}">Call ${LANDLINE}</a><a class="btn btn-ghost" href="${P(d)}contact/">Free written quote</a></div>
 </div></section>${trustline}`;
 }
 
-const sideCard = d => `<aside class="side-card"><h3>Free survey &amp; quote</h3><p>Tell us what the roof’s doing and we’ll take a look — free, no obligation, no pressure.</p><a class="btn btn-dark" href="${P(d)}contact/">Request a quote</a><a class="tel" href="tel:${MOBILE_INTL}">${MOBILE}</a><p class="side-note">or ${LANDLINE} · ${EMAIL}</p></aside>`;
+const sideCard = d => `<aside class="side-card"><h3>Free survey &amp; quote</h3><p>Tell us what the roof’s doing and we’ll take a look — free, no obligation, no pressure.</p><a class="btn btn-dark" href="${P(d)}contact/">Request a quote</a><a class="tel" href="tel:${LANDLINE_INTL}">${LANDLINE}</a><p class="side-note">or ${LANDLINE} · ${EMAIL}</p></aside>`;
 
 const photosBlock = d => `<div class="photos"><img src="${P(d)}assets/work-1.jpg" alt="Completed roofing work in London" loading="lazy"><img src="${P(d)}assets/work-2.jpg" alt="Roof repair by Roof Care of London" loading="lazy"><img src="${P(d)}assets/work-3.jpg" alt="Finished roof in South West London" loading="lazy"></div>`;
 
@@ -381,7 +381,7 @@ function comboPage(svc, area) {
   const canonical = `/${slug}/`;
   urls.push(canonical);
   const title = `${svc.name} ${area.name} – Roof Care Of London`;
-  const desc = `${svc.name} in ${area.name} by ${BIZ} — ${YEARS} years’ experience, £5m insured, free written quotes. Call ${MOBILE}.`;
+  const desc = `${svc.name} in ${area.name} by ${BIZ} — ${YEARS} years’ experience, £5m insured, free written quotes. Call ${LANDLINE}.`;
   const faqs = svc.faqs(area);
   const others = COMBOS.filter(c=>c.prefix!==svc.prefix).map(c=>`<a href="../${c.prefix}-${area.slug}/">${c.name} ${area.name}</a>`).join('');
   const nearby = area.nearby.map(sl=>`<a href="../${svc.prefix}-${sl}/">${svc.name} ${areaBySlug[sl].name}</a>`).join('');
@@ -478,14 +478,14 @@ function aboutPage() {
 function contactPage() {
   const d = 1, canonical = '/contact/';
   urls.push(canonical);
-  const html = head(d,{title:'Contact – Roof Care Of London',desc:`Get a free roofing quote from ${BIZ}. Call ${MOBILE} or ${LANDLINE}, email ${EMAIL}, or send a message — no obligation, no pressure.`,canonicalPath:canonical}) + nav(d)
+  const html = head(d,{title:'Contact – Roof Care Of London',desc:`Get a free roofing quote from ${BIZ}. Call ${LANDLINE} or ${LANDLINE}, email ${EMAIL}, or send a message — no obligation, no pressure.`,canonicalPath:canonical}) + nav(d)
     + pageHero(d,{crumb:'Contact', h1:'Get In Touch', lead:'Free surveys, fixed written quotes, honest advice. Tell us what the roof’s doing and we’ll take it from there.'})
     + `<section class="sec"><div class="wrap grid2"><div>
         <h2>Talk to a roofer, not a call centre</h2>
-        <p>Call or WhatsApp <a href="tel:${MOBILE_INTL}"><b>${MOBILE}</b></a> and you’ll get straight through to the team. Prefer a landline? We’re on <a href="tel:${LANDLINE_INTL}"><b>${LANDLINE}</b></a>. Email works too: <a href="mailto:${EMAIL}"><b>${EMAIL}</b></a>.</p>
+        <p>Call us on <a href="tel:${LANDLINE_INTL}"><b>${LANDLINE}</b></a> and you’ll get straight through to the team. Prefer mobile or WhatsApp? We’re on <a href="tel:${MOBILE_INTL}"><b>${MOBILE}</b></a>. Email works too: <a href="mailto:${EMAIL}"><b>${EMAIL}</b></a>.</p>
         <p>We’re based at ${ADDRESS.street}, London ${ADDRESS.postcode}, and cover the whole of South West and Central London. Surveys are free and quotes are fixed and in writing — no estimates that drift.</p>
-        <ul class="checks"><li><span class="tk">✓</span><span>Mobile / WhatsApp: ${MOBILE}</span></li><li><span class="tk">✓</span><span>Office: ${LANDLINE}</span></li><li><span class="tk">✓</span><span>Email: ${EMAIL}</span></li><li><span class="tk">✓</span><span>${ADDRESS.street}, London ${ADDRESS.postcode}</span></li></ul>
-        <div class="hero-actions" style="justify-content:flex-start;margin-top:22px"><a class="btn btn-dark" href="tel:${MOBILE_INTL}">Call ${MOBILE}</a><a class="btn btn-primary" href="https://wa.me/447877533880" target="_blank" rel="noopener">WhatsApp us</a></div>
+        <ul class="checks"><li><span class="tk">✓</span><span>Office: ${LANDLINE}</span></li><li><span class="tk">✓</span><span>Mobile / WhatsApp: ${MOBILE}</span></li><li><span class="tk">✓</span><span>Email: ${EMAIL}</span></li><li><span class="tk">✓</span><span>${ADDRESS.street}, London ${ADDRESS.postcode}</span></li></ul>
+        <div class="hero-actions" style="justify-content:flex-start;margin-top:22px"><a class="btn btn-dark" href="tel:${LANDLINE_INTL}">Call ${LANDLINE}</a><a class="btn btn-primary" href="https://wa.me/447877533880" target="_blank" rel="noopener">WhatsApp us</a></div>
       </div><div><img src="../assets/hero.jpg" alt="Roof Care of London at work" style="border-radius:var(--radius);box-shadow:var(--shadow-lg)"></div></div></section>`
     + ctaBand(d) + bizSchema() + footer(d);
   write('contact/index.html', html);
@@ -509,7 +509,7 @@ function geoStub() {
 function notFound() {
   const d = 0;
   const html = head(d,{title:'Page not found – Roof Care Of London',desc:'Sorry, that page doesn’t exist. Head back to Roof Care of London’s homepage.',canonicalPath:'/404.html'}) + nav(d)
-    + `<section class="sec" style="text-align:center;padding:110px 0"><div class="wrap"><h1 style="font-size:3rem;margin-bottom:12px">Page not found</h1><p style="margin:0 auto 28px">That page doesn’t exist — but the roofers do. Try the homepage or give us a call.</p><div class="hero-actions"><a class="btn btn-dark" href="./">Back to homepage</a><a class="btn btn-primary" href="tel:${MOBILE_INTL}">Call ${MOBILE}</a></div></div></section>`
+    + `<section class="sec" style="text-align:center;padding:110px 0"><div class="wrap"><h1 style="font-size:3rem;margin-bottom:12px">Page not found</h1><p style="margin:0 auto 28px">That page doesn’t exist — but the roofers do. Try the homepage or give us a call.</p><div class="hero-actions"><a class="btn btn-dark" href="./">Back to homepage</a><a class="btn btn-primary" href="tel:${LANDLINE_INTL}">Call ${LANDLINE}</a></div></div></section>`
     + footer(d);
   write('404.html', html);
 }
