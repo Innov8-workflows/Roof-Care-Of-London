@@ -289,6 +289,11 @@ function head(d, { title, desc, canonicalPath }) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${DOMAIN}${canonicalPath}">
+<meta property="og:image" content="https://innov8-workflows.github.io/Roof-Care-Of-London/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://innov8-workflows.github.io/Roof-Care-Of-London/og-card.jpg">
 <link rel="icon" type="image/webp" href="${P(d)}assets/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
