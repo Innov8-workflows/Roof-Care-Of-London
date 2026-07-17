@@ -303,6 +303,7 @@ function nav(d) {
   <a class="brand" href="${P(d)}" aria-label="${BIZ} home"><img src="${P(d)}assets/logo.webp" alt="${BIZ}"></a>
   <nav class="nav-links" aria-label="Primary">
     <a href="${P(d)}services/">Services</a>
+    <a href="${P(d)}our-work/">Our Work</a>
     <a href="${P(d)}areas/">Areas</a>
     <a href="${P(d)}about/">About</a>
     <a href="${P(d)}faq/">FAQ</a>
@@ -514,11 +515,23 @@ function notFound() {
   write('404.html', html);
 }
 
+function workPage() {
+  const d = 1, canonical = '/our-work/';
+  urls.push(canonical);
+  const photos = ['gallery-01','hero','work-5','work-2','work-4','work-3','work-1','g-1','g-2','g-3','g-4','g-5'];
+  const grid = photos.map((p,i)=>`<a href="../assets/${p}.jpg" target="_blank" rel="noopener"><img src="../assets/${p}.jpg" alt="Roofing project by Roof Care of London ${i+1}" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-sm);display:block"></a>`).join('');
+  const html = head(d,{title:'Our Work – Roof Care Of London',desc:'Recent roofing projects by Roof Care of London: re-roofs, flat roofs, leadwork and chimney repairs across South West and Central London.',canonicalPath:canonical}) + nav(d)
+    + pageHero(d,{crumb:'Our Work', h1:'Our Work', lead:'Real projects, photographed by our own team — re-roofs, flat roofs, leadwork and more across London. Tap any photo to view it full size.'})
+    + `<section class="sec"><div class="wrap"><div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">${grid}</div></div></section>`
+    + ctaBand(d) + bizSchema() + footer(d);
+  write('our-work/index.html', html);
+}
+
 /* ============ RUN ============ */
 fs.writeFileSync(path.join(ROOT,'assets','site.css'), CSS);
 COMBOS.forEach(svc => AREAS.forEach(area => comboPage(svc, area)));
 SERVICES.forEach(servicePage);
-servicesHub(); areasHub(); aboutPage(); contactPage(); faqPage(); geoStub(); notFound();
+servicesHub(); areasHub(); aboutPage(); contactPage(); faqPage(); workPage(); geoStub(); notFound();
 urls.push('/reviews/');
 
 fs.writeFileSync(path.join(ROOT,'sitemap.xml'),
