@@ -130,11 +130,12 @@ header.nav.scrolled{box-shadow:0 6px 22px rgba(14,26,34,.09)}
 /* BEFORE & AFTER */
 .ba{background:var(--white)}
 .ba-wrap{max-width:920px;margin:0 auto}
-.ba-video-card{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--ink)}
-.ba-video{display:block;width:100%;height:auto}
-.ba-video-caption{background:var(--white);padding:26px 30px 30px}
-.ba-video-caption h3{font-size:1.4rem;font-weight:700;margin:6px 0 8px}
-.ba-video-caption p{color:var(--muted);font-size:.98rem;max-width:640px}
+.ba-zig{display:grid;gap:44px;max-width:1080px;margin:0 auto}
+.ba-zrow{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}
+.ba-zrow video{width:100%;display:block;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:var(--ink)}
+.ba-zrow.rev video{order:2}
+.ba-zcopy h3{font-size:1.4rem;font-weight:700;margin:6px 0 10px}
+.ba-zcopy p{color:var(--muted);font-size:.98rem}
 
 /* GALLERY */
 .gallery{background:var(--paper)}
@@ -312,8 +313,10 @@ footer.foot{background:#0A141B;color:rgba(255,255,255,.7);padding:60px 0 0}
   .svc-grid{gap:10px}
   .svc-card{padding:16px 13px}
   .svc-icon{width:38px;height:38px;margin-bottom:10px}
-  .ba-video-caption{padding:18px 18px 20px}
-  .ba-video-caption p{font-size:.92rem}
+  .ba-zig{gap:30px}
+  .ba-zrow{grid-template-columns:1fr;gap:14px}
+  .ba-zrow.rev video{order:0}
+  .ba-zcopy p{font-size:.92rem}
   .why-inner{gap:26px}
   .why-list{gap:12px;margin-top:18px}
   .why-photo{aspect-ratio:4/3}
@@ -489,12 +492,22 @@ footer.foot{background:#0A141B;color:rgba(255,255,255,.7);padding:60px 0 0}
       <h2>Before and after</h2>
       <p>See the difference for yourself — a real project, from start to finish.</p>
     </div>
-    <div class="ba-video-card">
-      <video class="ba-video" id="baVideo" src="b-a-01-web.mp4" autoplay muted loop playsinline preload="auto" aria-label="Before and after roof transformation video"></video>
-      <div class="ba-video-caption">
-        <span class="eyebrow">Featured project</span>
-        <h3>Complete Roof Transformation</h3>
-        <p>Watch a tired, weathered roof brought back to its best — stripped back, renewed and finished to a standard built to last, all completed by our London team.</p>
+    <div class="ba-zig">
+      <div class="ba-zrow">
+        <video id="baVideo" src="b-a-01-web.mp4" autoplay muted loop playsinline preload="auto" aria-label="Before and after roof transformation video"></video>
+        <div class="ba-zcopy">
+          <span class="eyebrow">Featured project</span>
+          <h3>Complete Roof Transformation</h3>
+          <p>Watch a tired, weathered roof brought back to its best — stripped back, renewed and finished to a standard built to last, all completed by our London team.</p>
+        </div>
+      </div>
+      <div class="ba-zrow rev">
+        <video id="baVideo2" src="b-a-02-web.mp4" autoplay muted loop playsinline preload="auto" aria-label="Before and after pitched roof renewal video"></video>
+        <div class="ba-zcopy">
+          <span class="eyebrow">Recent project</span>
+          <h3>Pitched Roof Renewal</h3>
+          <p>Moss-covered tiles and tired flashings replaced with a crisp new tiled finish — rooflights retained, new leadwork to the parapet, and a roof set up for decades of London weather.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -763,7 +776,7 @@ var IMAGES={
 
 /* SCROLL VIDEOS — autoplay when scrolled into view */
 (function(){
-  ["baVideo","whyVideo"].forEach(function(id){
+  ["baVideo","baVideo2","whyVideo"].forEach(function(id){
     var v=document.getElementById(id);if(!v)return;
     v.muted=true;
     if(!("IntersectionObserver" in window)){v.autoplay=true;v.play();return;}
