@@ -492,7 +492,7 @@ function contactPage() {
         <p>Call us on <a href="tel:${LANDLINE_INTL}"><b>${LANDLINE}</b></a> and you’ll get straight through to the team. Prefer mobile or WhatsApp? We’re on <a href="tel:${MOBILE_INTL}"><b>${MOBILE}</b></a>. Email works too: <a href="mailto:${EMAIL}"><b>${EMAIL}</b></a>.</p>
         <p>We’re based at ${ADDRESS.street}, London ${ADDRESS.postcode}, and cover the whole of South West and Central London. Surveys are free and quotes are fixed and in writing — no estimates that drift.</p>
         <ul class="checks"><li><span class="tk">✓</span><span>Office: ${LANDLINE}</span></li><li><span class="tk">✓</span><span>Mobile / WhatsApp: ${MOBILE}</span></li><li><span class="tk">✓</span><span>Email: ${EMAIL}</span></li><li><span class="tk">✓</span><span>${ADDRESS.street}, London ${ADDRESS.postcode}</span></li></ul>
-        <div class="hero-actions" style="justify-content:flex-start;margin-top:22px"><a class="btn btn-dark" href="tel:${LANDLINE_INTL}">Call ${LANDLINE}</a><a class="btn btn-primary" href="https://wa.me/447877533880" target="_blank" rel="noopener">WhatsApp us</a></div>
+        <div class="hero-actions" style="justify-content:flex-start;margin-top:22px"><a class="btn btn-dark" href="tel:${LANDLINE_INTL}">Call ${LANDLINE}</a><a class="btn btn-primary" href="https://wa.me/447877533880?text=Hi%20Roof%20Care%20of%20London%2C%20I%20found%20you%20through%20your%20website%20%E2%80%94%20I'd%20like%20a%20quote." target="_blank" rel="noopener">WhatsApp us</a></div>
       </div><div><img src="../assets/hero.jpg" alt="Roof Care of London at work" style="border-radius:var(--radius);box-shadow:var(--shadow-lg)"></div></div></section>`
     + ctaBand(d) + bizSchema() + footer(d);
   write('contact/index.html', html);
