@@ -294,7 +294,8 @@ function head(d, { title, desc, canonicalPath }) {
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://innov8-workflows.github.io/Roof-Care-Of-London/og-card.jpg">
-<link rel="icon" type="image/webp" href="${P(d)}assets/logo.webp">
+<link rel="icon" type="image/png" href="${P(d)}assets/favicon.png">
+<link rel="apple-touch-icon" href="${P(d)}assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
