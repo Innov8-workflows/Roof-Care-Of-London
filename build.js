@@ -280,7 +280,7 @@ function head(d, { title, desc, canonicalPath }) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.google-analytics.com https://www.googletagmanager.com; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.google-analytics.com https://www.googletagmanager.com; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
@@ -339,7 +339,50 @@ function footer(d) {
     <div><h4>Contact</h4><p><a href="tel:${LANDLINE_INTL}">${LANDLINE}</a><a href="tel:${MOBILE_INTL}">${MOBILE}</a><a href="mailto:${EMAIL}">${EMAIL}</a></p><p>${ADDRESS.street},<br>${ADDRESS.locality} ${ADDRESS.postcode}</p><p><a href="${CHECKATRADE}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px"><img src="${P(d)}assets/checkatrade.png" alt="" width="20" height="20">Checkatrade reviews</a><a href="${MYBUILDER}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px"><img src="${P(d)}assets/mybuilder.png" alt="" width="20" height="20">MyBuilder reviews</a></p></div>
   </div>
   <div class="foot-bottom"><span>&copy; ${y} ${BIZ} &middot; ${ADDRESS.postcode}, London</span><span>Website by <a href="https://innov8workflows.co.uk" target="_blank" rel="noopener">Innov8 Workflows</a></span></div>
-</div></footer><!-- Cookie consent + GA4 (analytics load only after Accept) -->
+</div></footer><!-- Lead logger -> Google Sheet (Apps Script) -->
+<script>
+(function(){
+  var LEAD_URL='https://script.google.com/macros/s/AKfycbwBbOaiVmC1rjP83seXREqjQDsMSZAd4qoJq-ZX_oLSCZ9XksHpvarhqjBtBLdQjP4FuQ/exec';
+  function sendLead(d){
+    try{
+      d.page = location.pathname || '/';
+      fetch(LEAD_URL,{method:'POST',mode:'no-cors',keepalive:true,
+        headers:{'Content-Type':'text/plain;charset=UTF-8'},
+        body:JSON.stringify(d)});
+    }catch(e){}
+  }
+  function where(el){
+    if(!el||!el.closest) return 'page';
+    if(el.closest('.wa-fab')) return 'whatsapp widget';
+    if(el.closest('header.nav')||el.closest('.nav')) return 'nav';
+    if(el.closest('.hero')) return 'hero';
+    if(el.closest('form')||el.closest('.contact-form')) return 'contact form';
+    if(el.closest('.final-cta')||el.closest('.cta-band')) return 'bottom CTA';
+    if(el.closest('footer')) return 'footer';
+    if(el.closest('.side-card')) return 'quote box';
+    return 'page';
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target; if(!t||!t.closest) return;
+    var a=t.closest('a'); if(!a) return;
+    var h=a.getAttribute('href')||'';
+    if(h.indexOf('tel:')===0){
+      sendLead({type:'Call click',phone:h.replace('tel:',''),source:where(a)});
+    } else if(h.indexOf('wa.me')>-1){
+      sendLead({type:'WhatsApp click',source:where(a)});
+    }
+  },true);
+  document.addEventListener('click',function(e){
+    var t=e.target; if(!t) return;
+    var btn=(t.id==='waSubmit')?t:(t.closest?t.closest('#waSubmit'):null);
+    if(!btn) return;
+    function v(id){var el=document.getElementById(id);return el?String(el.value||'').trim():'';}
+    sendLead({type:'Quote form',name:v('fName'),phone:v('fPhone'),
+      service:v('fService'),details:v('fMsg'),source:'contact form'});
+  },true);
+})();
+</script>
+<!-- Cookie consent + GA4 (analytics load only after Accept) -->
 <script>
 (function(){
   var GA_ID='G-G9YPGDNJGM', KEY='rcl_cookie_consent';
