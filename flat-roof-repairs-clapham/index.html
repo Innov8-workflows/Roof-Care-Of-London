@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data: https://*.basemaps.cartocdn.com; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com; connect-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.google-analytics.com https://www.googletagmanager.com; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Flat Roof Repairs Clapham – Roof Care Of London</title>
 <meta name="description" content="Flat Roof Repairs in Clapham by Roof Care of London Ltd — 20 years’ experience, £5m insured, free written quotes. Call 020 7043 3772.">
@@ -69,4 +69,63 @@
     <div><h4>Contact</h4><p><a href="tel:+442070433772">020 7043 3772</a><a href="tel:+447877533880">07877 533880</a><a href="mailto:info@roofcareoflondonltd.co.uk">info@roofcareoflondonltd.co.uk</a></p><p>Warwick Chambers, Pater Street,<br>London W8 6EW</p><p><a href="https://www.checkatrade.com/trades/roofcareoflondon5932305" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px"><img src="../assets/checkatrade.png" alt="" width="20" height="20">Checkatrade reviews</a><a href="https://www.mybuilder.com/profile/roof-care-of-london" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px"><img src="../assets/mybuilder.png" alt="" width="20" height="20">MyBuilder reviews</a></p></div>
   </div>
   <div class="foot-bottom"><span>&copy; 2026 Roof Care of London Ltd &middot; W8 6EW, London</span><span>Website by <a href="https://innov8workflows.co.uk" target="_blank" rel="noopener">Innov8 Workflows</a></span></div>
-</div></footer></body></html>
+</div></footer><!-- Cookie consent + GA4 (analytics load only after Accept) -->
+<script>
+(function(){
+  var GA_ID='G-G9YPGDNJGM', KEY='rcl_cookie_consent';
+  var css='#rclCookie{position:fixed;left:0;right:0;bottom:16px;z-index:9999;width:min(720px,calc(100% - 32px));margin:0 auto;background:#0E1A22;color:#fff;border-radius:14px;padding:18px 20px;box-shadow:0 18px 50px rgba(0,0,0,.4);display:none;font-family:Inter,system-ui,sans-serif;font-size:.92rem;line-height:1.55}'
+    +'#rclCookie.show{display:block}'
+    +'#rclCookie a{color:#8BD8F3}'
+    +'#rclCookie .btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}'
+    +'#rclCookie button{font-family:Barlow,sans-serif;font-weight:700;font-size:.92rem;padding:10px 22px;border-radius:999px;border:0;cursor:pointer}'
+    +'#rclCookie .acc{background:#63C6EA;color:#0E1A22}'
+    +'#rclCookie .dec{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45)}'
+    +'@media(max-width:520px){#rclCookie{bottom:10px;width:calc(100% - 20px);padding:15px 16px;font-size:.87rem}}';
+  var st=document.createElement('style'); st.textContent=css; document.head.appendChild(st);
+
+  function loadGA(){
+    if(window.__gaLoaded) return; window.__gaLoaded=true;
+    var sc=document.createElement('script'); sc.async=true;
+    sc.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+    document.head.appendChild(sc);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag;
+    gtag('js',new Date());
+    gtag('config',GA_ID,{anonymize_ip:true});
+  }
+  function hide(){var b=document.getElementById('rclCookie'); if(b)b.classList.remove('show');}
+  window.rclAccept=function(){try{localStorage.setItem(KEY,'accepted');}catch(e){} hide(); loadGA();};
+  window.rclDecline=function(){try{localStorage.setItem(KEY,'declined');}catch(e){} hide();};
+
+  function init(){
+    var c=null; try{c=localStorage.getItem(KEY);}catch(e){}
+    if(c==='accepted'){loadGA(); return;}
+    if(c==='declined') return;
+    var d=document.createElement('div');
+    d.id='rclCookie'; d.setAttribute('role','dialog'); d.setAttribute('aria-label','Cookie consent');
+    d.innerHTML='<p>We use cookies to see how visitors use our site so we can improve it. Click <strong>Accept</strong> to allow analytics cookies — no advertising or tracking cookies are used.</p>'
+      +'<div class="btns"><button class="acc" type="button" onclick="rclAccept()">Accept</button><button class="dec" type="button" onclick="rclDecline()">Decline</button></div>';
+    document.body.appendChild(d);
+    setTimeout(function(){d.classList.add('show');},800);
+  }
+
+  /* lead-intent events (no-op unless consent given) */
+  function track(n,p){ if(typeof window.gtag==='function'){ try{ window.gtag('event',n,p||{}); }catch(e){} } }
+  document.addEventListener('click',function(e){
+    var t=e.target; if(!t||!t.closest) return;
+    var a=t.closest('a'); if(!a) return;
+    var h=a.getAttribute('href')||'';
+    if(h.indexOf('tel:')===0) track('click_to_call',{phone:h.replace('tel:','')});
+    else if(h.indexOf('wa.me')>-1) track('click_whatsapp',{});
+    else if(h.indexOf('checkatrade.com')>-1) track('click_checkatrade',{});
+    else if(h.indexOf('mybuilder.com')>-1) track('click_mybuilder',{});
+  },true);
+  document.addEventListener('click',function(e){
+    var t=e.target; if(t&&t.id==='waSubmit') track('generate_lead',{method:'whatsapp_form'});
+  },true);
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+</body></html>
