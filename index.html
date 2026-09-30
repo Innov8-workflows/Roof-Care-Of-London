@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.google-analytics.com https://www.googletagmanager.com; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://www.googletagmanager.com https://crm.innov8workflows.co.uk; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com https://crm.innov8workflows.co.uk">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data: https://tile.openstreetmap.org https://*.google-analytics.com https://www.googletagmanager.com; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://www.googletagmanager.com https://crm.innov8workflows.co.uk; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com https://crm.innov8workflows.co.uk">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roof Care of London Ltd | Trusted Roofing Specialists in London</title>
@@ -234,6 +234,7 @@ header.nav.scrolled{box-shadow:0 6px 22px rgba(14,26,34,.09)}
 .area-chips a:hover{border-color:var(--blue-deep);color:var(--blue-deeper)}
 .area-chips a.all{background:var(--ink);color:var(--white);border-color:var(--ink)}
 #coverageMap{height:440px;border-radius:var(--radius);box-shadow:var(--shadow-lg);margin:0 auto 34px;max-width:1080px;z-index:1}
+#coverageMap .leaflet-tile{filter:grayscale(1) brightness(1.06) contrast(.92)}
 #coverageMap .leaflet-popup-content{font-family:'Inter',sans-serif;font-size:.92rem}
 #coverageMap .leaflet-popup-content a{color:var(--blue-deeper);font-weight:700}
 @media(max-width:520px){#coverageMap{height:320px;margin-bottom:24px}}
@@ -912,7 +913,7 @@ var REVIEWS=[
   function slug(n){return n.toLowerCase();}
   function init(){
     var map=L.map(el,{scrollWheelZoom:false});
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{maxZoom:18,attribution:"&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> &copy; <a href='https://carto.com/attributions'>CARTO</a>"}).addTo(map);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"}).addTo(map);
     var bounds=[];
     AREAS.forEach(function(a){
       var m=L.circleMarker([a[1],a[2]],{radius:8,color:"#15789E",weight:2,fillColor:"#63C6EA",fillOpacity:.85}).addTo(map);
