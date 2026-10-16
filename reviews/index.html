@@ -226,7 +226,7 @@ h1{font-family:'Barlow',sans-serif;font-weight:800;font-size:2.9rem;line-height:
     var btn=(t.id==='waSubmit')?t:(t.closest?t.closest('#waSubmit'):null);
     if(!btn) return;
     function v(id){var el=document.getElementById(id);return el?String(el.value||'').trim():'';}
-    sendLead({type:'Quote form',name:v('fName'),phone:v('fPhone'),
+    if(v('botcheck'))return;sendLead({type:'Quote form',name:v('fName'),phone:v('fPhone'),
       service:v('fService'),details:v('fMsg'),source:'contact form'});
   },true);
 })();

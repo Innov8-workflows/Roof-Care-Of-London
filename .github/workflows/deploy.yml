@@ -23,8 +23,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # Publish only web files, never the repo root: build.js and other tooling stay private.
+      - name: Assemble _site
+        run: node _tools/assemble.js
+      # Developer comments are stripped from what ships; the source keeps them.
+      # Exits non-zero if any file cannot be proven unchanged, which aborts the deploy.
+      - name: Strip comments
+        run: node _tools/strip-comments.js _site --write
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: _site
       - uses: actions/deploy-pages@v4
         id: deployment

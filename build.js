@@ -280,7 +280,8 @@ function head(d, { title, desc, canonicalPath }) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data: https://tile.openstreetmap.org https://*.google-analytics.com https://www.googletagmanager.com; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data: https://tile.openstreetmap.org https://*.google-analytics.com https://www.googletagmanager.com; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://www.googletagmanager.com https://crm.innov8workflows.co.uk; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com https://crm.innov8workflows.co.uk">
+<script defer src="https://crm.innov8workflows.co.uk/track.js" data-id="proj_08a11f4acd8a"></script>
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
@@ -378,7 +379,7 @@ function footer(d) {
     var btn=(t.id==='waSubmit')?t:(t.closest?t.closest('#waSubmit'):null);
     if(!btn) return;
     function v(id){var el=document.getElementById(id);return el?String(el.value||'').trim():'';}
-    sendLead({type:'Quote form',name:v('fName'),phone:v('fPhone'),
+    if(v('botcheck'))return;sendLead({type:'Quote form',name:v('fName'),phone:v('fPhone'),
       service:v('fService'),details:v('fMsg'),source:'contact form'});
   },true);
 })();
@@ -615,7 +616,7 @@ function faqPage() {
 
 function geoStub() {
   // legacy WP taxonomy page — redirect home
-  write('geo/standard-geo/index.html', `<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><title>Roof Care Of London</title><meta name="robots" content="noindex"><link rel="canonical" href="${DOMAIN}/"><meta http-equiv="refresh" content="0; url=../../"><script>location.replace('../../');</script></head><body><p><a href="../../">Roof Care of London</a></p></body></html>`);
+  write('geo/standard-geo/index.html', `<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; script-src 'self' 'unsafe-inline'"><meta name="referrer" content="strict-origin-when-cross-origin"><title>Roof Care Of London</title><meta name="robots" content="noindex"><link rel="canonical" href="${DOMAIN}/"><meta http-equiv="refresh" content="0; url=../../"><script>location.replace('../../');</script></head><body><p><a href="../../">Roof Care of London</a></p></body></html>`);
 }
 
 function notFound() {
