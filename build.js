@@ -340,7 +340,7 @@ function footer(d) {
     <div><h4>Popular areas</h4>${['battersea','clapham','wimbledon','fulham','kensington','wandsworth'].map(sl=>`<a href="${P(d)}roofing-contractors-${sl}/">Roofers ${areaBySlug[sl].name}</a>`).join('')}<a href="${P(d)}areas/">All areas</a></div>
     <div><h4>Contact</h4><p><a href="tel:${LANDLINE_INTL}">${LANDLINE}</a><a href="tel:${MOBILE_INTL}">${MOBILE}</a><a href="mailto:${EMAIL}">${EMAIL}</a></p><p>${ADDRESS.street},<br>${ADDRESS.locality} ${ADDRESS.postcode}</p><p><a href="${CHECKATRADE}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px"><img src="${P(d)}assets/checkatrade.png" alt="" width="20" height="20">Checkatrade reviews</a><a href="${MYBUILDER}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px"><img src="${P(d)}assets/mybuilder.png" alt="" width="20" height="20">MyBuilder reviews</a></p></div>
   </div>
-  <div class="foot-bottom"><span>&copy; ${y} ${BIZ} &middot; ${ADDRESS.postcode}, London</span><span>Website by <a href="https://innov8workflows.co.uk" target="_blank" rel="noopener">Innov8 Workflows</a></span></div>
+  <div class="foot-bottom"><span>&copy; ${y} ${BIZ} &middot; ${ADDRESS.postcode}, London &middot; <a href="${P(d)}privacy-policy/">Privacy</a></span><span>Website by <a href="https://innov8workflows.co.uk" target="_blank" rel="noopener">Innov8 Workflows</a></span></div>
 </div></footer><!-- Lead logger -> Google Sheet (Apps Script) -->
 <script>
 (function(){
@@ -419,7 +419,7 @@ function footer(d) {
     if(c==='declined') return;
     var d=document.createElement('div');
     d.id='rclCookie'; d.setAttribute('role','dialog'); d.setAttribute('aria-label','Cookie consent');
-    d.innerHTML='<p>We use cookies to see how visitors use our site so we can improve it. Click <strong>Accept</strong> to allow analytics cookies \u2014 no advertising or tracking cookies are used.</p>'
+    d.innerHTML='<p>We use cookies to see how visitors use our site so we can improve it. Click <strong>Accept</strong> to allow analytics cookies \u2014 no advertising or tracking cookies are used. <a href="/privacy-policy/">Privacy and cookies</a></p>'
       +'<div class="btns"><button class="acc" type="button" onclick="rclAccept()">Accept</button><button class="dec" type="button" onclick="rclDecline()">Decline</button></div>';
     document.body.appendChild(d);
     setTimeout(function(){d.classList.add('show');},800);
@@ -604,6 +604,38 @@ function contactPage() {
   write('contact/index.html', html);
 }
 
+function privacyPage() {
+  const d = 1, canonical = '/privacy-policy/';
+  urls.push(canonical);
+  const html = head(d,{title:'Privacy Policy – Roof Care Of London',desc:`How ${BIZ} handles the information you give us, what the quote form does, and how Google Analytics cookies are used.`,canonicalPath:canonical})
+    + nav(d)
+    + pageHero(d,{crumb:'Privacy', h1:'Privacy Policy', lead:'What we collect, why, who sees it, and how to change your mind.'})
+    + `<section class="sec"><div class="wrap"><div style="max-width:760px">
+        <p>This policy explains what ${BIZ} does with the personal information you give us. It was last updated in October 2026.</p>
+        <h2>Who we are</h2>
+        <p>${BIZ}, ${ADDRESS.street}, ${ADDRESS.locality} ${ADDRESS.postcode}. You can reach us on <a href="tel:${LANDLINE_INTL}">${LANDLINE}</a> or at <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
+        <h2>What we collect</h2>
+        <p>Only what you give us when you get in touch: your name, your phone number, your email address if you use it, the address of the property and whatever you tell us about the job.</p>
+        <p>When you send the quote form, it opens WhatsApp on your own device with your message filled in. At the same moment, what you typed in the form (your name, phone number, the service and the details) is saved to our enquiry log, so we can get back to you even if you don’t finish sending the WhatsApp message. When you tap to call, WhatsApp or email us, we record that a tap happened and on which page, but not who you are.</p>
+        <h2>Why we hold it</h2>
+        <p>To quote for your work, to carry it out, and to contact you about it afterwards.</p>
+        <h2>Who we share it with</h2>
+        <p>Our enquiry log is a Google Sheet, and enquiries are also passed to Innov8 Workflows, who run this website and our enquiry system for us. They hold it only to provide that service to us. This site also reports basic, anonymous usage to Innov8 Workflows (page views and whether contact buttons get used). That sets no cookies and does not identify you.</p>
+        <p>We do not sell your details and we do not pass them to marketing companies.</p>
+        <h2>How long we keep it</h2>
+        <p>Enquiry details are kept only as long as needed to deal with the enquiry and any work that follows from it, plus the period required for tax and insurance records.</p>
+        <h2>Cookies and analytics</h2>
+        <p>We use Google Analytics to see how people find and use this site, but only if you press Accept on the cookie bar. Until then it isn’t loaded and no Google Analytics cookies are set. If you accept, it sets the <code>_ga</code> and <code>_ga_G9YPGDNJGM</code> cookies and sends Google a record of the pages you view, roughly where in the country you are, and what kind of device you are on. It does not tell us who you are.</p>
+        <p>Your choice is remembered in your browser, so we don’t ask on every page. To change it, clear this site’s data in your browser settings and you will be asked again. The site does not set advertising cookies.</p>
+        <h2>Other services this site uses</h2>
+        <p>Web fonts are served by Google, the coverage map uses OpenStreetMap map images and the Leaflet map code from unpkg.com, and the site is hosted on GitHub Pages. Each of them sees the internet address your browser connects from, as any website host does. Messages sent through WhatsApp are handled under WhatsApp’s own privacy terms.</p>
+        <h2>Your rights</h2>
+        <p>You can ask us what we hold about you, ask us to correct it, or ask us to delete it. Contact us on the details above and we will deal with it. If you are not happy with how we have handled it you can complain to the Information Commissioner’s Office at ico.org.uk.</p>
+      </div></div></section>`
+    + ctaBand(d) + bizSchema() + footer(d);
+  write('privacy-policy/index.html', html);
+}
+
 function faqPage() {
   const d = 1, canonical = '/faq/';
   urls.push(canonical);
@@ -643,7 +675,7 @@ function workPage() {
 fs.writeFileSync(path.join(ROOT,'assets','site.css'), CSS);
 COMBOS.forEach(svc => AREAS.forEach(area => comboPage(svc, area)));
 SERVICES.forEach(servicePage);
-servicesHub(); areasHub(); aboutPage(); contactPage(); faqPage(); workPage(); geoStub(); notFound();
+servicesHub(); areasHub(); aboutPage(); contactPage(); privacyPage(); faqPage(); workPage(); geoStub(); notFound();
 urls.push('/reviews/');
 
 fs.writeFileSync(path.join(ROOT,'sitemap.xml'),

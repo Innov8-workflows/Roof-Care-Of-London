@@ -772,7 +772,7 @@ footer.foot{background:#0A141B;color:rgba(255,255,255,.7);padding:60px 0 0}
       </div>
     </div>
     <div class="foot-bottom">
-      <span>&copy; <span id="year"></span> Roof Care of London Ltd. All rights reserved.</span>
+      <span>&copy; <span id="year"></span> Roof Care of London Ltd. All rights reserved. <a href="privacy-policy/">Privacy</a></span>
       <span>Website by <a href="#">Innov8 Workflows</a></span>
     </div>
   </div>
@@ -996,7 +996,7 @@ document.getElementById("waSubmit").addEventListener("click",function(){
     if(c==='declined') return;
     var d=document.createElement('div');
     d.id='rclCookie'; d.setAttribute('role','dialog'); d.setAttribute('aria-label','Cookie consent');
-    d.innerHTML='<p>We use cookies to see how visitors use our site so we can improve it. Click <strong>Accept</strong> to allow analytics cookies \u2014 no advertising or tracking cookies are used.</p>'
+    d.innerHTML='<p>We use cookies to see how visitors use our site so we can improve it. Click <strong>Accept</strong> to allow analytics cookies \u2014 no advertising or tracking cookies are used. <a href="/privacy-policy/">Privacy and cookies</a></p>'
       +'<div class="btns"><button class="acc" type="button" onclick="rclAccept()">Accept</button><button class="dec" type="button" onclick="rclDecline()">Decline</button></div>';
     document.body.appendChild(d);
     setTimeout(function(){d.classList.add('show');},800);
